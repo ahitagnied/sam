@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="image-info">
+                <span id="image-counter">Image 0 of 0</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="image-panel">
+                <h3>Original Image</h3>
+                <div class="canvas-container">
+                    <canvas id="drawCanvas"></canvas>
+                    <img id="sourceImage" style="display: none;">
+                </div>
+            </div>
+            
+            <div class="result-panel">
+                <h3>Segmented Result</h3>
+                <div class="result-container">
+                    <img id="resultImage" src="{{ url_for('static', filename='hero.png') }}" alt="Segmentation result">
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="runBtn" class="btn btn-primary">Run</button>
+            <button id="saveBtn" class="btn btn-success" disabled>Save</button>
+            <button id="redoBtn" class="btn btn-warning">Redo</button>
+            <button id="prevBtn" class="btn btn-secondary">Prev</button>
+            <button id="nextBtn" class="btn btn-secondary">Next</button>
+        </div>
+        
+        <div class="instructions">
+            <p>Left-click and drag to add positive points (foreground). Right-click and drag to add negative points (background). Points are placed automatically along the drag path. Click "Run" to segment.</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
+

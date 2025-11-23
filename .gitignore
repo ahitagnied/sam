@@ -1,0 +1,9 @@
+*.pth
+*.bin
+*.ini
+*.cfg
+
+colmap/
+sam/
+
+*.venv
